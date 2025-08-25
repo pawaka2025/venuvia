@@ -30,22 +30,21 @@ This backend has been conceived in order to address a number of use cases:
 
 - **Prohibitive costs of GPU usage for data analytics**:
 
-    GPUs have become the default accelerator for graph systems, especially those leveraging
-  GraphBLAS and massively parallel computation. Yet, their architecture is inherently
-  hostile to clustered computing environments. Unlike CPUs or distributed memory
-  systems that are naturally designed to scale across nodes, GPUs remain optimized for
-  monolithic single-unit performance.  
+  GPUs have become the default accelerator for graph systems, especially those leveraging
+GraphBLAS and massively parallel computation. Yet, their architecture is inherently
+hostile to clustered computing environments. Unlike CPUs or distributed memory
+systems that are naturally designed to scale across nodes, GPUs remain optimized for
+monolithic single-unit performance.  
 
-    This has driven the industry towards increasingly large and costly standalone devices
-  (e.g., NVIDIA A100, H100). Such designs concentrate computational power into fragile
-  singular points of failure: when a GPU fails, the entire expensive unit must be replaced,
-  rather than incrementally scaling or swapping smaller, cheaper components. This lack of
-  fault tolerance makes them impractical for sustainable, large-scale distributed
-  analytics.   
+  This has driven the industry towards developing increasingly larger and costlier monolithic units
+(ie NVIDIA A100, H100). Such designs concentrate computational power into fragile
+singular points of failure: when a GPU fails, the entire expensive unit must be replaced,
+rather than incrementally scaling or swapping smaller, cheaper components. This lack of
+fault tolerance makes them impractical for sustainable, large-scale distributed
+analytics.   
 
-    Moreover, GPUs impose further burdens:  
+  Moreover, GPUs impose further burdens:  
 
-    - **Economic** – their costs are skyrocketing, pricing out smaller institutions.  
-    - **Environmental** – high energy draw and electronic waste from rapid obsolescence.  
-    - **Accessibility** – cloud providers (Google, Amazon, IBM) frequently impose
-    **regional locks**, limiting global availability.  
+  - **Economic** – their costs are skyrocketing, pricing out smaller institutions.  
+  - **Environmental** – high energy draw and electronic waste from rapid obsolescence.  
+  - **Accessibility** – cloud providers (Google, Amazon, IBM) frequently impose regional locks, limiting global availability.  
