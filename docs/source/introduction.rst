@@ -22,8 +22,8 @@ Workarounds in graph databases (such as Neo4j’s use of intermediate “relatio
 
 Many of today’s frontier applications depend on these richer structures. For instance:
 
-- In **tensor-based statistical modeling**, random variables are not always independent or pairwise correlated; they may exhibit *higher-order dependencies* across multiple dimensions, which require hypergraph representations.  
-- In **drug discovery**, reactions often involve more than two molecules at once, with overlapping pathways and cascading effects.  
-- In **fraud detection**, coordinated rings of malicious actors cannot be decomposed into simple pairwise links without losing critical signals.
+  - In **tensor-based statistical modeling**, random variables are not always independent or pairwise correlated; they may exhibit *higher-order dependencies* across multiple dimensions, which require hypergraph representations.  
+  - In **drug discovery**, reactions often involve more than two molecules at once, with overlapping pathways and cascading effects.  
+  - In **fraud detection**, coordinated rings of malicious actors cannot be decomposed into simple pairwise links without losing critical signals.
 
 Without support for true hypergraph semantics, existing graph systems risk flattening or obscuring this complexity.
