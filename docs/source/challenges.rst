@@ -1,4 +1,4 @@
-Challenges in Developing Venuvia
+Challenges
 ================================
 
 Overview
