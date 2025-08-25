@@ -107,3 +107,42 @@ This backend has been conceived in order to address a number of pain points:
     smaller institutions to engage in scalable probabilistic programming and HPC research. 
     This contributes to a more equitable, inclusive, and globally distributed research 
     ecosystem.  
+
+- **Lack of hypergraph-native representations of probabilistic programming models**
+
+  Existing probabilistic programming frameworks (e.g., Stan, PyMC, TensorFlow Probability) 
+  are primarily designed around tensors or directed acyclic graphs (DAGs) that capture 
+  pairwise relationships. They do not natively support hyperedges, overlapping structures, 
+  or multi-dimensional dependencies inherent in complex probabilistic models such as 
+  structural causal models (SCMs) with overlapping plates or Gaussian mixture models with 
+  multi-way interactions.  
+
+  As a result, representing such models often requires cumbersome workarounds, including 
+  flattening higher-order dependencies or manually encoding hyperedges into intermediate 
+  structures. This limits expressivity, increases implementation complexity, and reduces 
+  computational efficiency when modeling real-world systems with inherently higher-order 
+  correlations.
+
+- **Lack of exposure to PGAS architectures**
+
+  Partitioned Global Address Space (PGAS) programming models remain largely underutilized 
+  outside high-performance computing (HPC) domains. Most contemporary graph, hypergraph, 
+  and probabilistic programming frameworks assume either single-node execution or rely on 
+  GPU clusters, limiting their scalability and flexibility.  
+
+  Venuvia explores the feasibility of leveraging PGAS to accelerate **probabilistic inference 
+  in hypergraph algorithms**, taking full advantage of CPU-native clusters. Key capabilities 
+  include:
+
+  - **High-dimensional topological arrangement of locales**, optimizing data locality 
+    and communication.  
+  - **Out-of-order execution**, enabling asynchronous scheduling of computational tasks.  
+  - **Adaptive learning topologies**, allowing dynamic redistribution of workloads for 
+    complex, branching, or stochastic computations.  
+
+  While raw throughput may not match the peak performance of GPUs on fully deterministic, 
+  non-temporal datasets, It is hoped that a through implementation of PGAS will allow Venuvia to achieve cost-effective, scalable, and 
+  flexible computation, making it a viable lower-cost alternative for many real-world 
+  hypergraph and probabilistic workloads.
+
+
