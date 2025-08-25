@@ -29,7 +29,7 @@ Contents
    workflow3
    usecases
    hypergraphalgorithms
-   probabilisticprogrammingmodels
+   ppmodels
    usage
    api
    roadmap
