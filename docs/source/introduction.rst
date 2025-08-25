@@ -1,12 +1,14 @@
 Introduction
 ===========================
 
-.. _Origin:
+Origin
+-----------------------
 
 The name *Venuvia* is inspired by the planets Venus and Jovia (Jupiter), often visible together 
 at dawn.
 
-.. _Movitation:
+Motivation
+-----------------------
 
 Graphs have become increasingly popular as a modeling tool across domains, 
 from social networks to recommendation systems. Yet, their expressiveness 
