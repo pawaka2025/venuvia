@@ -141,7 +141,7 @@ This backend has been conceived in order to address a number of pain points:
     complex, branching, or stochastic computations.  
 
   While raw throughput may not match the peak performance of GPUs on fully deterministic, 
-  non-temporal datasets, It is hoped that a through implementation of PGAS will allow Venuvia to achieve cost-effective, scalable, and 
+  non-temporal datasets, It is hoped that a thorough implementation of PGAS will allow Venuvia to achieve cost-effective, scalable, and 
   flexible computation, making it a viable lower-cost alternative for many real-world 
   hypergraph and probabilistic workloads.
 
