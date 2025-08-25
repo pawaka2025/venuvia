@@ -50,7 +50,7 @@ This backend has been conceived in order to address a number of pain points:
   - **Accessibility** – cloud providers (Google, Amazon, IBM) frequently impose regional locks, 
     limiting global availability.
 
-- **Restriction of single-instruction computing paradigms**
+- **Restriction of single-instruction computing architectures**
 
   SIMD (Single Instruction, Multiple Data) and SIMT (Single Instruction, Multiple Threads) 
   architectures have proven invaluable for accelerating many graph and hypergraph algorithms. 
@@ -67,5 +67,29 @@ This backend has been conceived in order to address a number of pain points:
   - **Adaptive graph traversal** in fraud detection, where decision paths branch dynamically 
     depending on evolving relational patterns among entities.  
   - **Recursive hypergraph algorithms**, such as multi-level k-core decomposition or 
-    hierarchical clustering, which cannot be efficiently flattened into single-instruction streams.  
+    hierarchical clustering, which cannot be efficiently flattened into single-instruction streams.
+
+- **All-or-nothing algorithm solving**
+
+  Many contemporary graph and hypergraph algorithms operate in an **all-or-nothing** fashion. 
+  That is, computations are typically designed to run to full completion and converge to a 
+  deterministic solution before any results can be considered valid. This rigidity is 
+  independent of, but exacerbated by, the limitations of single-instruction computing 
+  paradigms discussed previously.  
+
+  Such approaches leave little room for approximate, heuristic, or probabilistic solutions, 
+  which can be valuable in large-scale, noisy, or partially-observed datasets. For example:
+
+  - Accepting partial solutions where a substantial fraction of nodes (e.g., 80%) satisfy 
+    a k-core or other structural property, rather than insisting on global convergence.  
+  - Integrating **fuzzy, stochastic, or random variables** alongside deterministic data, 
+    enabling richer modeling of uncertainty in real-world systems.  
+  - Weighting contributions from highly confident observations more heavily within iterative 
+    or temporal computations, rather than treating all data points equally.  
+
+  The all-or-nothing nature of conventional graph algorithms constrains flexibility and 
+  expressiveness, particularly when modeling complex, multi-relational or probabilistic 
+  systems that are increasingly common in domains such as quantitative finance, fraud 
+  detection and scientific simulations.
+
 
