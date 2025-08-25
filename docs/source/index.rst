@@ -6,7 +6,9 @@ Venuvia
    :align: center
    :width: 70%
 
-(Image credit : NASA)
+.. raw:: html
+
+   <p style="text-align: center; font-size: smaller;"><em>Image credit: NASA</em></p>
 
 **Venuvia** is an experimental backend for large-scale hypergraph computation implemented as a CPU-only framework and architected around the Partitioned Global Address Space (PGAS) paradigm.
 
