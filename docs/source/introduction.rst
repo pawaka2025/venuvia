@@ -92,4 +92,23 @@ This backend has been conceived in order to address a number of pain points:
   systems that are increasingly common in domains such as quantitative finance, fraud 
   detection and scientific simulations.
 
+- **Alignment with ESG goals**
 
+  Venuvia’s CPU-centric, GPU-free architecture offers tangible advantages for corporate 
+  Environmental, Social, and Governance (ESG) objectives:
+
+  - **Environmental** – By relying exclusively on CPU clusters, the backend eliminates 
+    the need for high-power, specialized GPUs, which require rare earth materials, consume 
+    large amounts of electricity, and generate significant heat. This results in a lower 
+    environmental footprint for large-scale computation.  
+
+  - **Social / Governance** – The low cost and accessibility of CPU-based PGAS clusters 
+    can democratize advanced hypergraph computation, enabling independent researchers and 
+    smaller institutions to engage in scalable probabilistic programming and HPC research. 
+    This contributes to a more equitable, inclusive, and globally distributed research 
+    ecosystem.  
+
+  By demonstrating the feasibility of large-scale, CPU-native hypergraph computation, 
+  Venuvia aims to provide organizations with a **cost-effective, environmentally responsible, 
+  and socially enabling solution** for their computational analytics needs, aligning directly 
+  with ESG principles and facilitating funding for research initiatives.
