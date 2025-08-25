@@ -107,8 +107,3 @@ This backend has been conceived in order to address a number of pain points:
     smaller institutions to engage in scalable probabilistic programming and HPC research. 
     This contributes to a more equitable, inclusive, and globally distributed research 
     ecosystem.  
-
-  By demonstrating the feasibility of large-scale, CPU-native hypergraph computation, 
-  Venuvia aims to provide organizations with a **cost-effective, environmentally responsible, 
-  and socially enabling solution** for their computational analytics needs, aligning directly 
-  with ESG principles and facilitating funding for research initiatives.
