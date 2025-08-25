@@ -12,8 +12,7 @@ Motivation
 
 This backend has been conceived in order to address a number of use cases:
 
-The limits of expressibility of graph systems
-================================================
+- **The limits of expressibility of graph systems**: 
 
 Graphs have become increasingly popular as a modeling tool across domains, from social networks to recommendation systems. Yet their expressive power remains limited when applied to many of today's most critical use cases—such as medicinal research, quantitative analysis, fraud detection, and geophysical surveys.
 
