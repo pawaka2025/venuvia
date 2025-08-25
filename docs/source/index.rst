@@ -4,7 +4,7 @@ Venuvia
 .. image:: images/venuvia.jpg
    :alt: Venus and Jupiter
    :align: center
-   :width: 70%
+   :width: 50%
 
 (Image credit: NASA)
 
