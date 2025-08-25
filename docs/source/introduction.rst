@@ -82,7 +82,7 @@ This backend has been conceived in order to address a number of pain points:
 
   - Accepting partial solutions where a substantial fraction of nodes (e.g., 80%) satisfy 
     a k-core or other structural property, rather than insisting on global convergence.  
-  - Integrating **fuzzy, stochastic, or random variables** alongside deterministic data, 
+  - Integrating fuzzy, stochastic or random variables alongside deterministic data, 
     enabling richer modeling of uncertainty in real-world systems.  
   - Weighting contributions from highly confident observations more heavily within iterative 
     or temporal computations, rather than treating all data points equally.  
