@@ -24,9 +24,12 @@ Contents
 .. toctree::
 
    introduction
+   workflow1
+   workflow2
+   workflow3
+   industrialusecase
+   hypergraphalgorithms
+   probabilisticprogrammingmodels
    usage
    api
    roadmap
-   something
-   
-   
