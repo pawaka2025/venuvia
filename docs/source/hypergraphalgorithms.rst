@@ -1,4 +1,4 @@
-Hypergraph Algorithms Supported by Venuvia
+Hypergraph Algorithms
 ==========================================
 
 Overview
