@@ -27,7 +27,7 @@ Contents
    workflow1
    workflow2
    workflow3
-   usecase
+   usecases
    hypergraphalgorithms
    probabilisticprogrammingmodels
    usage
