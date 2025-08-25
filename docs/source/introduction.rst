@@ -10,7 +10,7 @@ at dawn.
 Motivation
 -----------------------
 
-This backend has been conceived in order to address a number of use cases:
+This backend has been conceived in order to address a number of pain points:
 
 - **The limits of expressibility of graph systems**: 
 
@@ -48,4 +48,28 @@ This backend has been conceived in order to address a number of use cases:
   - **Economic** – their costs are skyrocketing, pricing out smaller institutions.  
   - **Environmental** – high energy draw and electronic waste from rapid obsolescence.  
   - **Accessibility** – cloud providers (Google, Amazon, IBM) frequently impose regional locks, 
-    limiting global availability.  
+    limiting global availability.
+
+- **Restriction of single-instruction computing paradigms**
+
+  SIMD (Single Instruction, Multiple Data) and SIMT (Single Instruction, Multiple Threads) 
+  architectures have proven invaluable for accelerating many graph and hypergraph algorithms. 
+  However, they suffer from an inherent limitation: they are poorly suited to recursive, 
+  stochastic, or branching logic. By design, these paradigms execute the same instruction 
+  across multiple data elements in lockstep which makes divergent control flow inefficient 
+  or even infeasible.  
+
+  Many critical applications today require algorithms that involve some form of dynamic branching, 
+  stochastic decision-making, or recursion. Examples include:
+
+  - **Probabilistic inference** in structural causal models, where the flow of computation 
+    depends on stochastic sampling and conditional dependencies between variables.  
+  - **Adaptive graph traversal** in fraud detection, where decision paths branch dynamically 
+    depending on evolving relational patterns among entities.  
+  - **Recursive hypergraph algorithms**, such as multi-level k-core decomposition or 
+    hierarchical clustering, which cannot be efficiently flattened into single-instruction streams.  
+
+  Consequently, single-instruction computing models, while extremely fast for uniform 
+  workloads, are fundamentally limited when applied to complex, non-uniform or probabilistic 
+  data structures.
+
