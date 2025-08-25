@@ -1,13 +1,9 @@
-Welcome to Lumache's documentation!
+Venuvia
 ===================================
 
-**!!Lumache!!!** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**Venuvia** is an experimental CPU-only backend for scalable hypergraph computation, designed from the ground up to utilize parallellized computing via partitioned global space address (PGAS).
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+This backend is primarily aimed at solving hypergraph algorithms using probabilistic inferences and Bayesian decision making, while also allowing the native expression of probabilistic programming models as hypergraphs ie structural causal models (SCM) and gaussian mixture models (GSM). 
 
 .. note::
 
