@@ -69,7 +69,3 @@ This backend has been conceived in order to address a number of pain points:
   - **Recursive hypergraph algorithms**, such as multi-level k-core decomposition or 
     hierarchical clustering, which cannot be efficiently flattened into single-instruction streams.  
 
-  Consequently, single-instruction computing models, while extremely fast for uniform 
-  workloads, are fundamentally limited when applied to complex, non-uniform or probabilistic 
-  data structures.
-
