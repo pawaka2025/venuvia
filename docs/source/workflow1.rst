@@ -3,16 +3,15 @@ Conjugate Inference on Hypergraphs
 
 Overview
 --------
-
-.. note::
-   This workflow demonstrates the use of conjugate priors for probabilistic inference 
-   on hypergraph algorithms using Venuvia.
+This workflow demonstrates the use of conjugate priors for probabilistic inference 
+on hypergraph algorithms using Venuvia.
 
 Hypergraph Initialization
 -------------------------
-
-.. todo::
+.. note::
    Define the hypergraph \( \mathcal{H} = (V, E) \), including vertices and hyperedges.
+
+   
 
 Assign Probabilistic Node Properties
 ------------------------------------
