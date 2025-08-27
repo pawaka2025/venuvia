@@ -145,4 +145,8 @@ This backend has been conceived in order to address a number of pain points:
   flexible computation, making it a viable lower-cost alternative for many real-world 
   hypergraph and probabilistic workloads.
 
+Features
+-----------------------
+:: notes 
 
+WIP
