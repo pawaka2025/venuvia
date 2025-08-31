@@ -29,7 +29,7 @@ Use case simulation
 .. todo::
 We shall begin with a simulation of a critical use case in power line infrastructure.
 
-Let us imagine we have a network of neighborhood houses. When lightning strikes, excess static voltage will travel from home to home in a chain before being finally absorbed to the ground. Our objective is to identify homes that have received an excess static voltage above 4 million volts with a 85% chance in the aftermath of a thunderstorm. This will be useful in aiding power line infrastructure providers to prioritize which homes get to receive upgrades in ground wiring in order to reduce the damages caused by lightning strikes. 
+Let us imagine we have a network of neighborhood houses. When lightning strikes, excess static voltage will travel from home to home in a chain before being finally absorbed to the ground. Our objective is to identify homes that are 85% likely to receive a power surge, defined by a surge of 4 million volts, in the event of a lightning strike. This will be useful in aiding power line infrastructure providers to prioritize which homes get to receive upgrades in ground wiring in order to reduce the damages caused by lightning strikes. 
 
 Apart from that, we must also include in our analysis that certain homes have weaker ground wiring compared to others, and that the the ordering of the houses in a lighting strike event matters in determining whether or not the voltage actually flowed through.
 
@@ -37,17 +37,31 @@ We can model a lightning strike event to be an ordered hyperedge, the chain of h
 
 We can simplify our objective by reducing the 4 million volts number by a million. Thus our objective hence is to identify nodes that satisfy the condition P(K >= 4) = 85%.
 
-Assign Probabilistic Node Properties
+Assign Nodes and Their Prior Beliefs
 ------------------------------------
 
-.. todo::
-   Specify node-level probability distributions.
+We shall declare 5 nodes representing 5 homes, and then assign each immediately a prior belief representing their likelihood to receive a power surge in the event of a lightning stirke. This prior belief is not the same value as their true likelihoods, but should be ideally close enough based on past records, a raw Monte-Carlo sampling of a small test data, best guesses, etc in order to facilitate arriving to a posterior belief that closely equates to their true likelihoods.
 
-Assign Probabilistic Hyperedge Properties
+For now, let us go with a uniform, neutral prior belief for all nodes:
+
+prior_beliefs = {
+    0: 0.50,  
+    1: 0.50,  
+    2: 0.50,  
+    3: 0.50,  
+    4: 0.50,
+}
+
+Observe formed Hyperedges and Their Weights
 -----------------------------------------
 
-.. todo::
-   Specify hyperedge-level probability distributions.
+
+
+
+
+
+
+
 
 Perform Conjugate Inference
 ---------------------------
