@@ -16,11 +16,9 @@ For this demonstration we shall settle onto a singular objective for the rest of
 
 Hypergraph Initialization
 -------------------------
-.. note::
-   Define the hypergraph \( \mathcal{H} = (V, E) \), including vertices and hyperedges.
-We shall begin with
-
-For this demonstration we shall go with this hypergraph represented as an adjacency list:
+.. todo::
+For this demonstration we shall go with a hypergraph represented as an array of ordered hyperedges. Why ordered hyperedges? Because:
+1 - 
 
 
 
