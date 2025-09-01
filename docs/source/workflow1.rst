@@ -22,7 +22,7 @@ For this demonstration we shall go with a hypergraph represented as an array of 
 2 - Ordered hyperedges can also model unordered hyperedges, which can be interpreted simply as being ordered hyperedges with zero alternate topological alternatives.
 3 - Ordered hyperdges most importantly will allow for additional conditional logic that determines the confidence level of observations, as we will explore shortly in this particular demonstration. 
 
-Let θ represent hyperedge configuration, collectively known as the ordering of a hyperedge as well as the intrinsic property of each node within that hyperedge. The exact formulation is not of relevance - this can be formulated specifically for each individual use case. So for now we will simply say that the sigma (variance) for each observation is dependent on the value of θ. Hence σ=f(θ)
+Let θ represent hyperedge configuration, collectively known as the ordering of a hyperedge as well as the intrinsic property of each node within that hyperedge. The exact formulation is not of relevance - this can be formulated specifically for each individual use case. So for now we will simply say that the true weight produced by each ordered hyperedge is dependent on the value of θ. Hence true_weight=f(weight, θ)
 
 Use case simulation
 ------------------------
@@ -44,30 +44,59 @@ We shall declare 5 nodes representing 5 homes, and then assign each immediately 
 
 For now, let us go with a uniform, neutral prior belief for all nodes:
 
-prior_beliefs = {
-    0: 0.50,  
-    1: 0.50,  
-    2: 0.50,  
-    3: 0.50,  
-    4: 0.50,
-}
+nodes = [
+    "prior_belief": 0.50,  
+    "prior_belief": 0.50,  
+    "prior_belief": 0.50,  
+    "prior_belief": 0.50,  
+    "prior_belief": 0.50,
+]
 
 Observe formed Hyperedges and Their Weights
 -----------------------------------------
+We will generate a hypergraph of ordered edges to represent the first round of observation. This can be a representative of past records or a computer simulation of the results of lightning strikes on a chain of homes of various lengths and ordering.
 
+As mentioned previously, each hyperedge will be ordered. Overlaps between hyperedges will also be allowed.
 
+Weights will also be assigned to each hyperedge, alongside their corresponding sigma values assuming that each hyperedge's configuration value θ has already been accounted for. Each hyperedge can be represented using a class with a variadic field setting but, for now let us go with this data structure:
 
+obs_1 = [
+    {
+        "nodes": [0, 1, 2],
+        "weight": 3.5,       # observed voltage in million volts
+        "sigma": 0.5         # variance influenced by θ
+    },
+    {
+        "nodes": [1, 3],
+        "weight": 2.8,
+        "sigma": 0.3
+    },
+    {
+        "nodes": [2, 4],
+        "weight": 3.2,
+        "sigma": 0.4
+    },
+    {
+        "nodes": [0, 3, 4],
+        "weight": 2.5,
+        "sigma": 0.35
+    }
+]
 
+Of course we can insert all observations together into a singular dataset like this:
 
+dataset = [obs_1, obs_2, obs_3, obs_4, ...]
 
-
-
+This notation will be useful when solving this algorithm using the totality of all observations forming a temporal hypergraph, or in more advanced cases enabling the use of datasets represented as higher dimensional hypergraphs or simplicial complexes.
 
 Perform Conjugate Inference
 ---------------------------
 
 .. todo::
    Describe step-by-step updates using conjugate priors.
+
+
+
 
 Compute K-Core Decomposition
 ----------------------------
