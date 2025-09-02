@@ -99,11 +99,11 @@ Node 4: true
 
 Next we update each node's Beta distribution accordingly.
 
-Node 0: beta_update(nodes[0].node_0.conjugate, true)
-Node 1: beta_update(nodes[0].node_1.conjugate, true)
-Node 2: beta_update(nodes[0].node_2.conjugate, true)
-Node 3: beta_update(nodes[0].node_3.conjugate, true)
-Node 4: beta_update(nodes[0].node_4.conjugate, true)
+beta_update(nodes[0].conjugate, true)
+beta_update(nodes[1].conjugate, true)
+beta_update(nodes[2].conjugate, true)
+beta_update(nodes[3].conjugate, true)
+beta_update(nodes[4].conjugate, true)
 
 Branching logic
 -------------------------
