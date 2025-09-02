@@ -85,9 +85,6 @@ Perform Conjugate Inference
 .. todo::
    Describe step-by-step updates using conjugate priors.
 
-
-
-
 Compute K-Core Decomposition
 ----------------------------
 
