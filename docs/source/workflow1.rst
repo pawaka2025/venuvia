@@ -16,10 +16,10 @@ For this demonstration we shall settle onto a singular objective for the rest of
 
 Hypergraph Initialization
 -------------------------
-.. todo::
+
 For this demonstration we shall go with a hypergraph represented as an array of ordered hyperedges. Why ordered hyperedges? Because:
 1 - Ordered hyperedges additionally capture hierarchical relationships between nodes - an expression that is extremely important for modelling probabilistic programming models.
-2 - Ordered hyperedges can also model unordered hyperedges, which can be interpreted simply as being ordered hyperedges with zero alternate topological alternatives.
+2 - Ordered hyperedges can also model unordered hyperedges, which can be interpreted simply as being degenerate ordered hyperedges with zero alternate topological alternatives.
 3 - Ordered hyperdges most importantly will allow for additional conditional logic that determines the confidence level of observations, as we will explore shortly in this particular demonstration. 
 
 Let θ represent hyperedge configuration, collectively known as the ordering of a hyperedge as well as the intrinsic property of each node within that hyperedge. The exact formulation is not of relevance - this can be formulated specifically for each individual use case. So for now we will simply say that the true weight produced by each ordered hyperedge is dependent on the value of θ. Hence true_weight=f(weight, θ)
@@ -42,44 +42,40 @@ Assign Nodes and Their Prior Beliefs
 
 We shall declare 5 nodes representing 5 homes, and then assign each immediately a prior belief representing their likelihood to receive a power surge in the event of a lightning stirke. This prior belief is not the same value as their true likelihoods, but should be ideally close enough based on past records, a raw Monte-Carlo sampling of a small test data, best guesses, etc in order to facilitate arriving to a posterior belief that closely equates to their true likelihoods.
 
-For now, let us go with a uniform, neutral prior belief for all nodes:
+For now, let us go with a uniform, neutral prior belief for all nodes because we don't have a clear reference of the most likely values for each node. We shall set for each a Beta conjugate distribution with mean = 0.5, kappa = 100 to allow moderate amounts of mean shifting per epoch, sigma = 0.04 to allow the mean to shift to a wide range of possible values. 
 
 nodes = [
-    "prior_belief": 0.50,  
-    "prior_belief": 0.50,  
-    "prior_belief": 0.50,  
-    "prior_belief": 0.50,  
-    "prior_belief": 0.50,
+    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
+    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
+    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
+    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
+    Beta(mean = 0.5, kappa = 100, sigma = 0.04),
 ]
 
 Observe formed Hyperedges and Their Weights
 -----------------------------------------
-We will generate a hypergraph of ordered edges to represent the first round of observation. This can be a representative of past records or a computer simulation of the results of lightning strikes on a chain of homes of various lengths and ordering.
+We will generate a hypergraph of ordered edges to represent our observations. This can be a representative of past records or a computer simulation of the results of lightning strikes on a chain of homes of various lengths and ordering.
 
 As mentioned previously, each hyperedge will be ordered. Overlaps between hyperedges will also be allowed.
 
 Weights will also be assigned to each hyperedge, alongside their corresponding sigma values assuming that each hyperedge's configuration value θ has already been accounted for. Each hyperedge can be represented using a class with a variadic field setting but, for now let us go with this data structure:
 
-obs_1 = [
+obs = [
     {
         "nodes": [0, 1, 2],
         "weight": 3.5,       # observed voltage in million volts
-        "sigma": 0.5         # variance influenced by θ
     },
     {
         "nodes": [1, 3],
         "weight": 2.8,
-        "sigma": 0.3
     },
     {
         "nodes": [2, 4],
         "weight": 3.2,
-        "sigma": 0.4
     },
     {
         "nodes": [0, 3, 4],
         "weight": 2.5,
-        "sigma": 0.35
     }
 ]
 
