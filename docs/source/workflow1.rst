@@ -42,14 +42,14 @@ Assign Nodes and Their Prior Beliefs
 
 We shall declare 5 nodes representing 5 homes, and then assign each immediately a prior belief representing their likelihood to receive a power surge in the event of a lightning stirke. This prior belief is not the same value as their true likelihoods, but should be ideally close enough based on past records, a raw Monte-Carlo sampling of a small test data, best guesses, etc in order to facilitate arriving to a posterior belief that closely equates to their true likelihoods.
 
-For now, let us go with a uniform, neutral prior belief for all nodes because we don't have a clear reference of their most likely values. We shall declare for each a Beta conjugate distribution with mean = 0.5, kappa = 100 to allow moderate amounts of mean shifting per epoch, sigma = 0.04 to allow the mean to shift to a wide range of possible values. The other values for each of these Beta distributions will be auto-calculated heuristically so we shall not be concerned about them for now.
+For now, let us go with a uniform, neutral prior belief for all nodes because we don't have a clear reference of their most likely values. We shall declare for each a Beta conjugate distribution with mean = 0.5 in the middle, kappa = 10 to allow moderate amounts of mean shifting per epoch, sigma = a large value of 0.153 to allow the mean to shift to a wide range of possible values. The other values for each of these Beta distributions will be auto-calculated heuristically so we shall not be concerned about them for now.
 
 nodes = [
-    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
-    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
-    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
-    Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
-    Beta(mean = 0.5, kappa = 100, sigma = 0.04),
+    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
+    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
+    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
+    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
+    Beta(mean = 0.5, kappa = 10, sigma = 0.153),
 ]
 
 Observe formed Hyperedges and Their Weights
@@ -58,7 +58,7 @@ We will generate a hypergraph of ordered edges to represent our observations. Th
 
 As mentioned previously, each hyperedge will be ordered. Overlaps between hyperedges will also be allowed.
 
-Weights will also be assigned to each hyperedge, alongside their corresponding sigma values assuming that each hyperedge's configuration value θ has already been accounted for. Each hyperedge can be represented using a class with a variadic field setting but, for now let us go with this data structure:
+Weights will also be assigned to each hyperedge. It has already been assumed here that each hyperedge's inherent configuration value θ has already been accounted for to influnce the final values of each of these weights. 
 
 obs = [
     {
@@ -78,12 +78,6 @@ obs = [
         "weight": 2.5,
     }
 ]
-
-Of course we can insert all observations together into a singular dataset like this:
-
-dataset = [obs_1, obs_2, obs_3, obs_4, ...]
-
-This notation will be useful when solving this algorithm using the totality of all observations forming a temporal hypergraph, or in more advanced cases enabling the use of datasets represented as higher dimensional hypergraphs or simplicial complexes.
 
 Perform Conjugate Inference
 ---------------------------
