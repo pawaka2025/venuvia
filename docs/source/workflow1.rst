@@ -81,15 +81,32 @@ obs = [
 
 Perform Conjugate Inference
 ---------------------------
+First we will calculate the obtained K-core for each node. 
 
-.. todo::
-   Describe step-by-step updates using conjugate priors.
+Node 0: 3.5 (edge 0) + 2.5 (edge 3) = 6.0
+Node 1: 3.5 (edge 0) + 2.8 (edge 1) = 6.3
+Node 2: 3.5 (edge 0) + 3.2 (edge 2) = 6.7
+Node 3: 2.8 (edge 1) + 2.5 (edge 3) = 5.3
+Node 4: 3.2 (edge 2) + 2.5 (edge 3) = 5.7
 
-Compute K-Core Decomposition
-----------------------------
+Given that our objective is P(K >= 4) = 85%, we include a branching logic: if (K < 4) it's a failed observation. Hence if (K < 4) n0 = 1 and n1 = 0, vice versa.
 
-.. todo::
-   Describe the probabilistic k-core computation workflow.
+Node 0: n0 = 0 and n1 = 1
+Node 1: n0 = 0 and n1 = 1
+Node 2: n0 = 0 and n1 = 1
+Node 3: n0 = 0 and n1 = 1
+Node 4: n0 = 0 and n1 = 1
+
+Next we update each node's Beta distribution accordingly.
+
+Node 0: bayesian_update(node_0_beta, 0, 1)
+Node 1: bayesian_update(node_1_beta, 0, 1)
+Node 2: bayesian_update(node_2_beta, 0, 1)
+Node 3: bayesian_update(node_3_beta, 0, 1)
+Node 4: bayesian_update(node_4_beta, 0, 1)
+
+Branching logic
+-------------------------
 
 Output & Analysis
 ----------------
