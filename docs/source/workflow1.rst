@@ -45,11 +45,11 @@ We shall declare 5 nodes representing 5 homes, and then assign each immediately 
 For now, let us go with a uniform, neutral prior belief for all nodes because we don't have a clear reference of their most likely values. We shall declare for each a Beta conjugate distribution with mean = 0.5 in the middle, kappa = 10 to allow moderate amounts of mean shifting per epoch, sigma = a large value of 0.153 to allow the mean to shift to a wide range of possible values. The other values for each of these Beta distributions will be auto-calculated heuristically so we shall not be concerned about them for now.
 
 nodes = [
-    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
-    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
-    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
-    Beta(mean = 0.5, kappa = 10, sigma = 0.153),  
-    Beta(mean = 0.5, kappa = 10, sigma = 0.153),
+    Node(Beta(mean = 0.5, kappa = 10, sigma = 0.153)), 
+    Node(Beta(mean = 0.5, kappa = 10, sigma = 0.153)), 
+    Node(Beta(mean = 0.5, kappa = 10, sigma = 0.153)), 
+    Node(Beta(mean = 0.5, kappa = 10, sigma = 0.153)), 
+    Node(Beta(mean = 0.5, kappa = 10, sigma = 0.153)), 
 ]
 
 Observe formed Hyperedges and Their Weights
@@ -89,21 +89,21 @@ Node 2: 3.5 (edge 0) + 3.2 (edge 2) = 6.7
 Node 3: 2.8 (edge 1) + 2.5 (edge 3) = 5.3
 Node 4: 3.2 (edge 2) + 2.5 (edge 3) = 5.7
 
-Given that our objective is P(K >= 4) = 85%, we include a branching logic: if (K < 4) it's a failed observation. Hence if (K < 4) n0 = 1 and n1 = 0, vice versa.
+Given that our objective is P(K >= 4) = 85%, we include a branching logic: if (K < 4) it's a failed observation, vice versa. Fail = false, success = true.
 
-Node 0: n0 = 0 and n1 = 1
-Node 1: n0 = 0 and n1 = 1
-Node 2: n0 = 0 and n1 = 1
-Node 3: n0 = 0 and n1 = 1
-Node 4: n0 = 0 and n1 = 1
+Node 0: true
+Node 1: true
+Node 2: true
+Node 3: true
+Node 4: true
 
 Next we update each node's Beta distribution accordingly.
 
-Node 0: bayesian_update(node_0_beta, 0, 1)
-Node 1: bayesian_update(node_1_beta, 0, 1)
-Node 2: bayesian_update(node_2_beta, 0, 1)
-Node 3: bayesian_update(node_3_beta, 0, 1)
-Node 4: bayesian_update(node_4_beta, 0, 1)
+Node 0: beta_update(nodes[0].node_0.conjugate, true)
+Node 1: beta_update(nodes[0].node_1.conjugate, true)
+Node 2: beta_update(nodes[0].node_2.conjugate, true)
+Node 3: beta_update(nodes[0].node_3.conjugate, true)
+Node 4: beta_update(nodes[0].node_4.conjugate, true)
 
 Branching logic
 -------------------------
