@@ -26,7 +26,7 @@ Let θ represent hyperedge configuration, collectively known as the ordering of 
 
 Use case simulation
 ------------------------
-.. todo::
+
 We shall begin with a simulation of a critical use case in power line infrastructure.
 
 Let us imagine we have a network of neighborhood houses. When lightning strikes, excess static voltage will travel from home to home in a chain before being finally absorbed to the ground. Our objective is to identify homes that are 85% likely to receive a power surge, defined by a surge of 4 million volts, in the event of a lightning strike. This will be useful in aiding power line infrastructure providers to prioritize which homes get to receive upgrades in ground wiring in order to reduce the damages caused by lightning strikes. 
@@ -42,7 +42,7 @@ Assign Nodes and Their Prior Beliefs
 
 We shall declare 5 nodes representing 5 homes, and then assign each immediately a prior belief representing their likelihood to receive a power surge in the event of a lightning stirke. This prior belief is not the same value as their true likelihoods, but should be ideally close enough based on past records, a raw Monte-Carlo sampling of a small test data, best guesses, etc in order to facilitate arriving to a posterior belief that closely equates to their true likelihoods.
 
-For now, let us go with a uniform, neutral prior belief for all nodes because we don't have a clear reference of the most likely values for each node. We shall set for each a Beta conjugate distribution with mean = 0.5, kappa = 100 to allow moderate amounts of mean shifting per epoch, sigma = 0.04 to allow the mean to shift to a wide range of possible values. 
+For now, let us go with a uniform, neutral prior belief for all nodes because we don't have a clear reference of their most likely values. We shall declare for each a Beta conjugate distribution with mean = 0.5, kappa = 100 to allow moderate amounts of mean shifting per epoch, sigma = 0.04 to allow the mean to shift to a wide range of possible values. The other values for each of these Beta distributions will be auto-calculated heuristically so we shall not be concerned about them for now.
 
 nodes = [
     Beta(mean = 0.5, kappa = 100, sigma = 0.04),  
