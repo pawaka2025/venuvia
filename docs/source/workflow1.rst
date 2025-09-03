@@ -60,7 +60,7 @@ As mentioned previously, each hyperedge will be ordered. Overlaps between hypere
 
 Weights will also be assigned to each hyperedge. It has already been assumed here that each hyperedge's inherent configuration value θ has already been accounted for to influnce the final values of each of these weights. 
 
-obs = [
+observations = [
     {
         "nodes": [0, 1, 2],
         "weight": 3.5,       # observed voltage in million volts
@@ -89,24 +89,27 @@ Node 2: 3.5 (edge 0) + 3.2 (edge 2) = 6.7
 Node 3: 2.8 (edge 1) + 2.5 (edge 3) = 5.3
 Node 4: 3.2 (edge 2) + 2.5 (edge 3) = 5.7
 
-Given that our objective is P(K >= 4) = 85%, we include a branching logic: if (K < 4) it's a failed observation, vice versa. Fail = false, success = true.
+Recall our objective is P(K >= 4).
+Because the outputs of the observations lie within the space of [0, inf] while we are expecting a mere success/failure boolean outcome for Beta distribution updates, and also because we want to make sure that larger K-core scores will cause greater shifting of the beta conjugates of each node to magnify the contributions of strong observations, we will convert these scores into sigmoid distribution probabilities ie values increase as score moves further away from 4. 
 
-Node 0: true
-Node 1: true
-Node 2: true
-Node 3: true
-Node 4: true
+nodes[0].sigmoid = sigmoid(observed_score=6.0, treshold_score=4, tau= 1) 
+nodes[1].sigmoid = sigmoid(observed_score=6.3, treshold_score=4, tau= 1) 
+nodes[2].sigmoid = sigmoid(observed_score=6.7, treshold_score=4, tau= 1) 
+nodes[3].sigmoid = sigmoid(observed_score=5.3, treshold_score=4, tau= 1) 
+nodes[4].sigmoid = sigmoid(observed_score=5,7, treshold_score=4, tau= 1) 
 
 Next we update each node's Beta distribution accordingly.
 
-beta_update(nodes[0].conjugate, true)
-beta_update(nodes[1].conjugate, true)
-beta_update(nodes[2].conjugate, true)
-beta_update(nodes[3].conjugate, true)
-beta_update(nodes[4].conjugate, true)
+beta_update(nodes[0].conjugate, nodes[0].sigmoid, 1 - nodes[0].sigmoid)
+beta_update(nodes[1].conjugate, nodes[1].sigmoid, 1 - nodes[1].sigmoid)
+beta_update(nodes[2].conjugate, nodes[2].sigmoid, 1 - nodes[2].sigmoid)
+beta_update(nodes[3].conjugate, nodes[3].sigmoid, 1 - nodes[3].sigmoid)
+beta_update(nodes[4].conjugate, nodes[4].sigmoid, 1 - nodes[4].sigmoid)
 
 Branching logic
 -------------------------
+
+
 
 Output & Analysis
 ----------------
