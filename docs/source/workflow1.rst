@@ -96,7 +96,7 @@ nodes[0].sigmoid = sigmoid(observed_score=6.0, treshold_score=4, tau= 1)
 nodes[1].sigmoid = sigmoid(observed_score=6.3, treshold_score=4, tau= 1) 
 nodes[2].sigmoid = sigmoid(observed_score=6.7, treshold_score=4, tau= 1) 
 nodes[3].sigmoid = sigmoid(observed_score=5.3, treshold_score=4, tau= 1) 
-nodes[4].sigmoid = sigmoid(observed_score=5,7, treshold_score=4, tau= 1) 
+nodes[4].sigmoid = sigmoid(observed_score=5.7, treshold_score=4, tau= 1) 
 
 Next we update each node's Beta distribution accordingly.
 
