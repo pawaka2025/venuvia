@@ -1,4 +1,4 @@
-Workflow 1: Conjugate Inference on Hypergraphs
+Conjugate Inference on Hypergraphs
 ==================================
 
 Overview
